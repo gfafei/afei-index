@@ -13,6 +13,15 @@ app.get('/', (req, res) => {
         })
     })
 })
+app.get('/:path', (req, res) => {
+    const path = req.params.path || '';
+    const file = path.replace('html', 'md');
+    if (fs.existsSync(`./mds/${file}`)) {
+        res.send('exists')
+    } else {
+        res.send('not exists')
+    }
+})
 app.use(express.static('client'));
 
 app.listen(port, () => {
