@@ -5,12 +5,9 @@
     <title>afei的个人网站</title>
     <link rel="stylesheet" href="/css/markdown_github.css">
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/journal.css">
 </head>
 <body>
-    <%-
-    journals.map((journal) => (
-        `<a href="${journal}.html">${journal}</a>`
-    ))
-    %>
+    <article class="markdown-body"><%- journal %></article>
 </body>
 </html>
