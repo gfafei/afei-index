@@ -3,6 +3,7 @@ const marked = require('marked')
 const fs = require('fs')
 const glob = require('glob')
 const config = require('./config')
+const _ = require('lodash')
 
 const app = express()
 
@@ -12,14 +13,20 @@ app.get('/', (req, res) => {
         res.render('pages/index', { journals: journals.map(journal => journal.replace('.md', '')) })
     })
 })
+app.get('/more', (req, res) => {
+    res.render('pages/more')
+})
+app.get('/about', (req, res) => {
+    res.render('pages/about')
+})
+
 app.get('/*.html', (req, res) => {
-    const path = req.path;
-    const file = path.replace('html', 'md')
-    const journalPath = `${config.journalSrc}/${file}`
+    const path = decodeURI(req.path);
+    const journalPath = `${config.journalSrc}/${path.replace('html', 'md')}`
+    const title = _.last(path.split('/')).replace('.html', '')
     if (fs.existsSync(journalPath)) {
         fs.readFile(journalPath, 'utf-8', (err, data) => {
-            console.log(data);
-            res.render('pages/journal', { journal: marked(data) })
+            res.render('pages/journal', { journal: marked(data), title: title })
         })
     } else {
         res.send('not exists')

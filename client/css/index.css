@@ -1,0 +1,17 @@
+body {
+    background-color: #f4f4f4;
+}
+.container {
+    width: 650px;
+    margin: auto;
+}
+.journal-item {
+    line-height: 2;
+}
+.header {
+    display: flex;
+    justify-content: flex-end;
+}
+.more-item {
+    padding: 10px;
+}

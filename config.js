@@ -1,4 +1,4 @@
 module.exports = {
     port: 3000,
-    journalSrc: './mds'
+    journalSrc: '/home/afei/Nutstore Files/mds'
 }

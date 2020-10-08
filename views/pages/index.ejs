@@ -5,12 +5,20 @@
     <title>afei的个人网站</title>
     <link rel="stylesheet" href="/css/markdown_github.css">
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-    <%-
-    journals.map((journal) => (
-        `<a href="${journal}.html">${journal}</a>`
-    ))
-    %>
+    <div class="container">
+        <header class="header">
+            <div class="more-item"><a href="/more">更多</a></div>
+            <div class="more-item"><a href="/about">关于我</a></div>
+        </header>
+        <h3 class="main-title">日志</h3>
+        <div class="main-content">
+            <%journals.forEach(journal => {%>
+                <div class="journal-item"><a href="<%- journal%>.html"><%- journal.substring(journal.lastIndexOf('/') + 1) %></a></div>
+            <%})%>
+        </div>
+    </div>
 </body>
 </html>
