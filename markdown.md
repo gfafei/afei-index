@@ -1,3 +1,6 @@
+ When \\(a \ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+  \\[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\\]
+
 It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
 
 Sometimes you want numbered lists:

@@ -19,6 +19,14 @@ app.get('/more', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('pages/about')
 })
+app.get('/demo', (req, res) => {
+    fs.readFile('./markdown.md', 'utf-8', (err, data) => {
+        res.render('pages/journal', {
+            journal: marked(data),
+            title: 'markdown demo'
+        })
+    })
+})
 
 app.get('/*.html', (req, res) => {
     const path = decodeURI(req.path);
