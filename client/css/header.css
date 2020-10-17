@@ -1,0 +1,15 @@
+header {
+  width: 750px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+header a {
+  min-width: 72px;
+  line-height: 32px;
+  text-align: center;
+}
+header .home {
+  margin-right: auto;
+  text-align: left;
+}
