@@ -14,10 +14,16 @@ app.get('/', (req, res) => {
     })
 })
 app.get('/more', (req, res) => {
-    res.render('pages/more')
+    res.render('pages/more', {
+        projects: config.projects
+    })
 })
 app.get('/about', (req, res) => {
-    res.render('pages/about')
+    res.render('pages/about', {
+        about: config.about,
+        email: config.email,
+        github: config.github
+    })
 })
 app.get('/demo', (req, res) => {
     fs.readFile('./markdown.md', 'utf-8', (err, data) => {
